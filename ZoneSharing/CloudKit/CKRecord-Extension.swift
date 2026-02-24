@@ -14,7 +14,7 @@ extension CKRecord {
     }
 
     /// Extracts a required field value, throwing if the key is missing or the type doesn't match.
-    func require<T>(_ key: String) throws -> T {
+    public func require<T>(_ key: String) throws -> T {
         guard let value = self[key] as? T else {
             throw AppError(record: self)
         }
