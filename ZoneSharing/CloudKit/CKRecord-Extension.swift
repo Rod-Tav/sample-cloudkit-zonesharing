@@ -23,7 +23,7 @@ extension CKRecord {
     }
 }
 
-struct AppError: LocalizedError {
+struct AppError: Error {
     let record: CKRecord
 
     var errorDescription: String? {
