@@ -149,7 +149,7 @@ final class ViewModel: ObservableObject {
                 let zoneChanges = try await database.recordZoneChanges(inZoneWith: zone.zoneID, since: nextChangeToken)
                 let contacts = zoneChanges.modificationResultsByID.values
                     .compactMap { try? $0.get().record }
-                    .compactMap { Contact(record: $0) }
+                    .compactMap { try? Contact(record: $0) }
                 allContacts.append(contentsOf: contacts)
 
                 awaitingChanges = zoneChanges.moreComing
