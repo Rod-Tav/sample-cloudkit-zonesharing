@@ -9,13 +9,15 @@ import CloudKit
 struct ContactGroup {
     let zone: CKRecordZone
     let contacts: [Contact]
-    
-    var name: String {
-        zone.zoneID.zoneName
-    }
 }
 
 extension ContactGroup: Identifiable {
+    /// The verbose unique identifier
+    var name: String {
+        zone.zoneID.zoneName
+    }
+    
+    /// The unique identifier
     var id: String {
         name
     }

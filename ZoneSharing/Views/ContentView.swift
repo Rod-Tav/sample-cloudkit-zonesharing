@@ -44,7 +44,10 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $isAddingContact, content: {
-            AddContactView(onAdd: addContact, onCancel: { isAddingContact = false })
+            AddContactView(
+                onAdd: addContact,
+                onCancel: { isAddingContact = false }
+            )
         })
         .sheet(isPresented: $isSharing, content: { shareView() })
     }
