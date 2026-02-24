@@ -27,6 +27,6 @@ struct AppError: LocalizedError {
     let record: CKRecord
 
     var errorDescription: String? {
-        "Invalid record '\(record.recordType)' (\(record.recordID.recordName))"
+        "Invalid record '\(record.recordType)' (\(record.genericID))"
     }
 }
