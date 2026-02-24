@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55F2FDAF2F4DB89800CAFE0C /* CKDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDAE2F4DB89800CAFE0C /* CKDish.swift */; };
+		55F2FDB62F4DD2E400CAFE0C /* View-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDB42F4DD2E400CAFE0C /* View-Extensions.swift */; };
+		55F2FDB82F4DD3B600CAFE0C /* ObservableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDB72F4DD3B600CAFE0C /* ObservableViewModel.swift */; };
 		F4F53CDE2816285200520729 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F53CDD2816285200520729 /* Assets.xcassets */; };
 		F4F53CE12816285200520729 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F53CE02816285200520729 /* Preview Assets.xcassets */; };
 		F4F53CEB2816285200520729 /* ZoneSharingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F53CEA2816285200520729 /* ZoneSharingTests.swift */; };
@@ -33,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55F2FDAE2F4DB89800CAFE0C /* CKDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKDish.swift; sourceTree = "<group>"; };
+		55F2FDB42F4DD2E400CAFE0C /* View-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Extensions.swift"; sourceTree = "<group>"; };
+		55F2FDB72F4DD3B600CAFE0C /* ObservableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableViewModel.swift; sourceTree = "<group>"; };
 		F4F53CD62816285100520729 /* ZoneSharing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZoneSharing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F53CDD2816285200520729 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4F53CE02816285200520729 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -71,6 +77,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55F2FDAC2F4DB88C00CAFE0C /* CloudKit */ = {
+			isa = PBXGroup;
+			children = (
+				55F2FDAE2F4DB89800CAFE0C /* CKDish.swift */,
+			);
+			path = CloudKit;
+			sourceTree = "<group>";
+		};
+		55F2FDB12F4DD26B00CAFE0C /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				F4F53D172816293000520729 /* AppDelegate.swift */,
+				F4F53D1B28162A6A00520729 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		55F2FDB22F4DD29500CAFE0C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				55F2FDB32F4DD2A100CAFE0C /* Helpers */,
+				55F2FDB12F4DD26B00CAFE0C /* Delegates */,
+				F4F53D112816291000520729 /* ContentView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		55F2FDB32F4DD2A100CAFE0C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F4F53D192816294B00520729 /* Config.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		55F2FDB52F4DD2E400CAFE0C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				55F2FDB42F4DD2E400CAFE0C /* View-Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		F4F53CCD2816285100520729 = {
 			isa = PBXGroup;
 			children = (
@@ -93,11 +142,13 @@
 		F4F53CD82816285100520729 /* ZoneSharing */ = {
 			isa = PBXGroup;
 			children = (
+				55F2FDAC2F4DB88C00CAFE0C /* CloudKit */,
 				F4F53D0A2816291000520729 /* Models */,
 				F4F53D0E2816291000520729 /* Views */,
 				F4F53D0C2816291000520729 /* ViewModels */,
 				F4F53D03281628CC00520729 /* App */,
 				F4F53CDF2816285200520729 /* Preview Content */,
+				55F2FDB52F4DD2E400CAFE0C /* Helpers */,
 			);
 			path = ZoneSharing;
 			sourceTree = "<group>";
@@ -121,11 +172,9 @@
 		F4F53D03281628CC00520729 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				55F2FDB22F4DD29500CAFE0C /* Main */,
 				F4F53D22281631BF00520729 /* Info.plist */,
 				F4F53D1E28162BC200520729 /* ZoneSharing.entitlements */,
-				F4F53D172816293000520729 /* AppDelegate.swift */,
-				F4F53D192816294B00520729 /* Config.swift */,
-				F4F53D1B28162A6A00520729 /* SceneDelegate.swift */,
 				F4F53CDD2816285200520729 /* Assets.xcassets */,
 			);
 			path = App;
@@ -144,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				F4F53D0D2816291000520729 /* ViewModel.swift */,
+				55F2FDB72F4DD3B600CAFE0C /* ObservableViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -153,7 +203,6 @@
 			children = (
 				F4F53D0F2816291000520729 /* AddContactView.swift */,
 				F4F53D102816291000520729 /* CloudSharingView.swift */,
-				F4F53D112816291000520729 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -267,12 +316,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4F53D182816293000520729 /* AppDelegate.swift in Sources */,
+				55F2FDAF2F4DB89800CAFE0C /* CKDish.swift in Sources */,
 				F4F53D122816291000520729 /* Contact.swift in Sources */,
 				F4F53D1A2816294B00520729 /* Config.swift in Sources */,
 				F4F53D142816291000520729 /* AddContactView.swift in Sources */,
+				55F2FDB82F4DD3B600CAFE0C /* ObservableViewModel.swift in Sources */,
 				F4F53D2428163E8700520729 /* ContactGroup.swift in Sources */,
 				F4F53D162816291000520729 /* ContentView.swift in Sources */,
 				F4F53D152816291000520729 /* CloudSharingView.swift in Sources */,
+				55F2FDB62F4DD2E400CAFE0C /* View-Extensions.swift in Sources */,
 				F4F53D132816291000520729 /* ViewModel.swift in Sources */,
 				F4F53D1C28162A6A00520729 /* SceneDelegate.swift in Sources */,
 			);
@@ -422,7 +474,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZoneSharing/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 95H9KWZL7G;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ZoneSharing/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -435,7 +487,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.samples.cloudkit.zonesharing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.samples.cloudkit.zonesharing.rod;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -452,7 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZoneSharing/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 95H9KWZL7G;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ZoneSharing/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -465,7 +517,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.samples.cloudkit.zonesharing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.samples.cloudkit.zonesharing.rod;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
