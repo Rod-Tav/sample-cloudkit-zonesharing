@@ -61,7 +61,7 @@ final class ViewModel: ObservableObject {
         // Determine zones for each set of contacts.
         // In the Private DB, we want to ignore the default zone.
         let privateZones = try await database.allRecordZones()
-            .filter { $0.zoneID != CKRecordZone.default().zoneID }
+            .filter { $0.zoneID != CKDishZone.default().zoneID }
         let sharedZones = try await container.sharedCloudDatabase.allRecordZones()
 
         // This will run each of these operations in parallel.
@@ -79,11 +79,11 @@ final class ViewModel: ObservableObject {
     func addContact(name: String, phoneNumber: String, group: String) async throws {
         do {
             // Ensure zone exists first.
-            let zone = CKRecordZone(zoneName: group)
+            let zone = CKDishZone(zoneName: group)
             try await database.save(zone)
             
-            let id = CKRecord.ID(zoneID: zone.zoneID)
-            let contactRecord = CKRecord(recordType: "SharedContact", recordID: id)
+            let id = CKDish.ID(zoneID: zone.zoneID)
+            let contactRecord = CKDish(recordType: "SharedContact", recordID: id)
             contactRecord["name"] = name
             contactRecord["phoneNumber"] = phoneNumber
 
@@ -122,7 +122,7 @@ final class ViewModel: ObservableObject {
     /// - Returns: An array of grouped contacts (a zone/group name and an array of `Contact` objects).
     private func fetchContacts(
         scope: CKDatabase.Scope,
-        in zones: [CKRecordZone]
+        in zones: [CKDishZone]
     ) async throws -> [ContactGroup] {
         guard !zones.isEmpty else {
             return []
@@ -132,8 +132,8 @@ final class ViewModel: ObservableObject {
         var allContacts: [ContactGroup] = []
 
         // Inner function retrieving and converting all Contact records for a single zone.
-        @Sendable func contactsInZone(_ zone: CKRecordZone) async throws -> [Contact] {
-            if zone.zoneID == CKRecordZone.default().zoneID {
+        @Sendable func contactsInZone(_ zone: CKDishZone) async throws -> [Contact] {
+            if zone.zoneID == CKDishZone.default().zoneID {
                 return []
             }
 
@@ -149,7 +149,7 @@ final class ViewModel: ObservableObject {
                 let zoneChanges = try await database.recordZoneChanges(inZoneWith: zone.zoneID, since: nextChangeToken)
                 let contacts = zoneChanges.modificationResultsByID.values
                     .compactMap { try? $0.get().record }
-                    .compactMap { try? Contact(record: $0) }
+                    .compactMap { try? Contact(dish: $0) }
                 allContacts.append(contentsOf: contacts)
 
                 awaitingChanges = zoneChanges.moreComing
@@ -160,7 +160,7 @@ final class ViewModel: ObservableObject {
         }
 
         // Using this task group, fetch each zone's contacts in parallel.
-        try await withThrowingTaskGroup(of: (CKRecordZone, [Contact]).self) { group in
+        try await withThrowingTaskGroup(of: (CKDishZone, [Contact]).self) { group in
             for zone in zones {
                 group.addTask {
                     (zone, try await contactsInZone(zone))

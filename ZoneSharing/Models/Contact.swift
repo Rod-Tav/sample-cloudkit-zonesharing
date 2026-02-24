@@ -10,16 +10,16 @@ struct Contact: Identifiable {
     let id: String
     let name: String
     let phoneNumber: String
-    let associatedRecord: CKRecord
+    let associatedDish: CKDish
 }
 
 extension Contact {
-    /// Initializes a `Contact` object from a CloudKit record.
-    /// - Parameter record: CloudKit record to pull values from.
-    init(record: CKRecord) throws {
-        self.id = record.genericID
-        self.name = try record.require("name")
-        self.phoneNumber = try record.require("phoneNumber")
-        self.associatedRecord = record
+    /// Initializes a `Contact` object from a CloudKit dish.
+    /// - Parameter dish: CloudKit dish to pull values from.
+    init(dish: CKDish) throws {
+        self.id = dish.genericID
+        self.name = try dish.require("name")
+        self.phoneNumber = try dish.require("phoneNumber")
+        self.associatedDish = dish
     }
 }

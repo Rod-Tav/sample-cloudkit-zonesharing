@@ -157,7 +157,7 @@ struct ContentView_Previews: PreviewProvider {
             id: UUID().uuidString,
             name: "John Appleseed",
             phoneNumber: "(888) 555-5512",
-            associatedRecord: CKRecord(recordType: "SharedContact")
+            associatedDish: CKDish(recordType: "SharedContact")
         )
     ]
 
