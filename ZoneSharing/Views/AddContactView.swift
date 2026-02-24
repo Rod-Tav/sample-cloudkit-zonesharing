@@ -54,9 +54,7 @@ struct AddContactView: View {
 extension AddContactView {
     @ToolbarContentBuilder private var cancellationToolbarContent: some ToolbarContent {
         ToolbarItem(placement: .cancellationAction) {
-            Button("Cancel") {
-                onCancel()
-            }
+            Button("Cancel", action: onCancel)
         }
     }
     
