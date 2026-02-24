@@ -40,7 +40,7 @@ struct AddContactView: View {
             TextField("Group", text: $groupInput)
         }
         .padding()
-        .maxHeight(.bottom)
+        .maxHeight(spacer: .bottom)
         .navigationTitle("Add Contact")
         .toolbar {
             cancellationToolbarContent

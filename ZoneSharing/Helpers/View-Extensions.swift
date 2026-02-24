@@ -9,8 +9,11 @@ import SwiftUI
 
 public extension View {
     /// Sets max height to infinity which has center alignment by default
-    func maxHeight(_ alignment: Alignment = .center) -> some View {
+    func maxHeight(spacer alignment: Alignment?) -> some View {
         self
-            .frame(maxHeight: .infinity, alignment: alignment)
+            .frame(
+                maxHeight: .infinity,
+                alignment: alignment ?? .center
+            )
     }
 }
