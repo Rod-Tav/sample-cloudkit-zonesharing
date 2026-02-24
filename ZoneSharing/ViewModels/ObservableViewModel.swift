@@ -5,10 +5,10 @@
 //  Created by Rod Tavangar on 2/24/26.
 //
 
-import Observation
-import Foundation
-import CloudKit
 import OSLog
+import Foundation
+import Observation
+import CloudKit
 
 @available(iOS 17.0, *)
 @MainActor @Observable

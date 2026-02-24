@@ -78,7 +78,7 @@ class ZoneSharingTests: XCTestCase {
             return
         }
 
-        idsToDelete.append(testContact.associatedRecord.recordID)
+        idsToDelete.append(testContact.associatedDish.recordID)
         zoneIDsToDelete.append(testContactGroup.zone.zoneID)
 
         let (share, _) = try await viewModel.fetchOrCreateShare(contactGroup: testContactGroup)
