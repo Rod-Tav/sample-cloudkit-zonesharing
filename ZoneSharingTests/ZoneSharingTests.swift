@@ -10,8 +10,8 @@ import CloudKit
 class ZoneSharingTests: XCTestCase {
 
     let viewModel = ViewModel()
-    var idsToDelete: [CKDish.ID] = []
-    var zoneIDsToDelete: [CKDishZone.ID] = []
+    var idsToDelete: [CKStation.ID] = []
+    var zoneIDsToDelete: [CKOrbit.ID] = []
 
     // MARK: - Setup & Tear Down
 
@@ -78,7 +78,7 @@ class ZoneSharingTests: XCTestCase {
             return
         }
 
-        idsToDelete.append(testContact.associatedDish.recordID)
+        idsToDelete.append(testContact.associatedStation.recordID)
         zoneIDsToDelete.append(testContactGroup.zone.zoneID)
 
         let (share, _) = try await viewModel.fetchOrCreateShare(contactGroup: testContactGroup)
