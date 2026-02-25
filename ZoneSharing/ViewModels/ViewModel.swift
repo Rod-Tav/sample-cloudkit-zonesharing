@@ -1,14 +1,18 @@
 //
-//  ViewModel.swift
-//  (cloudkit-samples) Zone Sharing
+//  ObservableViewModel.swift
+//  ZoneSharing
+//
+//  Created by Rod Tavangar on 2/24/26.
 //
 
-import Foundation
-import CloudKit
 import OSLog
+import Foundation
+import Observation
+import CloudKit
 
-@MainActor
-final class ViewModel: ObservableObject {
+@available(iOS 17.0, *)
+@MainActor @Observable
+final class ViewModel {
 
     // MARK: - Error
 
@@ -27,18 +31,24 @@ final class ViewModel: ObservableObject {
     // MARK: - Properties
 
     /// State directly observable by our view.
-    @Published private(set) var state: State = .loading
+    private(set) var state: State = .loading
     /// Use the specified iCloud container ID, which should also be present in the entitlements file.
-    lazy var container = CKContainer(identifier: Config.containerIdentifier)
+    let container: CKContainer
     /// This project uses the user's private database.
-    private lazy var database = container.privateCloudDatabase
+    private let database: CKDatabase
 
     // MARK: - Init
 
-    nonisolated init() {}
+    nonisolated init() {
+        let container = CKContainer(identifier: Config.containerIdentifier)
+        self.container = container
+        self.database = container.privateCloudDatabase
+        Task { try await refresh() }
+    }
 
     /// Initializer to provide explicit state (e.g. for previews).
-    init(state: State) {
+    convenience init(state: State) {
+        self.init()
         self.state = state
     }
 
