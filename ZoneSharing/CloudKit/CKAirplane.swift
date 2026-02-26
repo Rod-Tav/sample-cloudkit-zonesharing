@@ -11,10 +11,10 @@ import CloudKit
 public typealias CKFlight = CKRecordZone
 
 public protocol CKAirplane: Sociable {
-    var gate: any CKGate { get set }
     var flight: CKFlight { get set }
     
     func getName() -> String
+    func getGate() -> CKGate
     func getPassengers() -> Set<CKPassenger>
 }
 

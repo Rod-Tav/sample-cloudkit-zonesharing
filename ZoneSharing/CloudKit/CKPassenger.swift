@@ -8,18 +8,18 @@
 import Foundation
 import CloudKit
 
-public typealias CKPassenger = CKRecord
+public typealias CKSeat = CKRecordZone
 
-@MainActor public extension CKPassenger {
-    convenience init(name: String) {
-        self.init(recordType: name)
+public actor CKPassenger<T: Sociable>: Observable {
+    var name: CKRecordZone
+    var seat: CKSeat
+    
+    init(name: CKRecordZone, seat: CKSeat) {
+        self.name = name
+        self.seat = seat
     }
     
-    func getName() -> String {
-        return self.recordType
-    }
-    
-    func getFlight(from gate: CKGate) -> CKFlight {
-        return CKFlight(zoneName: gate.name)
+    func getSeat(for passenger: CKPassenger) -> CKSeat {
+        return seat
     }
 }

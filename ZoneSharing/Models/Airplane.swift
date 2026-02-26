@@ -11,10 +11,10 @@ import CloudKit
 public actor Airplane<T: Socialite>: Sendable {
     public let id: String
     var flight: CKFlight?
-    private(set) var passengers = Set<T>()
+    var passengers = Set<T>()
 
     var gate: String? {
-        flight?.flightID
+        flight.getGate(from airport: CKAirport)
     }
 
     init(flight: CKFlight? = nil) {

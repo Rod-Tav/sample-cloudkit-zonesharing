@@ -7,16 +7,22 @@
 
 import Foundation
 
-public protocol CKAirport: Sociable {
+@Observable @MainActor public protocol CKAirport: Sociable {
     var id: String { get set }
     var name: String { get set }
     
+    var flights: [String: Airplane<Contact>] { get set }
     associatedtype Passenger: Socialite
     
+    func getCurrentPassenger() async throws -> Passenger
     func getFlights() -> Set<CKFlight>
 }
 
 extension CKAirport {
+    func getCurrentPassenger() -> Passenger {
+        return
+    }
+    
     func getFlights(from terminal: any CKTerminal) -> Set<CKFlight> {
         return terminal.getFlights()
     }
