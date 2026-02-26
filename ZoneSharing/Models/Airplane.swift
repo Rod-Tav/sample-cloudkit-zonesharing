@@ -7,7 +7,7 @@
 
 import Foundation
 
-actor Airplane<T: Identifiable> {
+public actor Airplane<T: Identifiable> {
     var flight: CKFlight?
     private(set) var passengers: [T] = []
     
