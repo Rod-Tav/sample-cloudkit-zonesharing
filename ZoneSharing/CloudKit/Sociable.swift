@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol Sociable: Identifiable {
-    func socialID() -> String?
-    func syncedData() -> SecureGroup?
-    func secureSocialGroup() -> SecureSocialGroup?
+protocol Sociable: Identifiable, Sendable {
+    func getSocialID() -> String?
+    func getStation() -> CKStation?
+    func getNetwork() -> CKNetwork?
 }
 
 extension Sociable {
-    func socialID() -> String? { secureSocialGroup()?.zoneID.zoneName }
-    func syncedData() -> SecureGroup? { return nil }
-    func secureSocialGroup() -> SecureSocialGroup? { return nil }
+    func getSocialID(_ station: CKStation) -> String? { getNetwork()?.zoneID.zoneName }
+    func getStation() -> CKStation? { return nil }
+    func getNetwork(_ station: CKStation) -> CKNetwork? { return nil }
 }

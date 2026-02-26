@@ -167,14 +167,14 @@ private extension ContentView {
 // MARK: - Preview
 #Preview {
     @Previewable @State var previewContacts = ContactGroup(
-        zone: SecureSocialGroup(zoneName: "Preview Group"),
+        zone: CKNetwork(zoneName: "Preview Group"),
         contacts:
             [
                 Contact(
                     id: UUID().uuidString,
                     name: "John Appleseed",
                     phoneNumber: "(888) 555-5512",
-                    associatedStation: SecureGroup(recordType: "SharedContact")
+                    associatedStation: CKStation(recordType: "SharedContact")
                 )
             ]
     )
