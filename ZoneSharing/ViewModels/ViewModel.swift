@@ -71,7 +71,7 @@ final class ViewModel {
         // Determine zones for each set of contacts.
         // In the Private DB, we want to ignore the default zone.
         let privateZones = try await database.allRecordZones()
-            .filter { $0.zoneID != CKNetwork.default().zoneID }
+            .filter { $0.zoneID != CKFlight.default().zoneID }
         let sharedZones = try await container.sharedCloudDatabase.allRecordZones()
 
         // This will run each of these operations in parallel.
@@ -89,11 +89,11 @@ final class ViewModel {
     func addContact(contact: Contact, group: String) async throws {
         do {
             // Ensure zone exists first.
-            let zone = CKNetwork(zoneName: group)
+            let zone = CKFlight(zoneName: group)
             try await database.save(zone)
             
-            let id = CKStation.ID(zoneID: zone.zoneID)
-            let contactRecord = CKStation(recordType: "SharedContact", recordID: id)
+            let id = CKTerminal.ID(zoneID: zone.zoneID)
+            let contactRecord = CKTerminal(recordType: "SharedContact", recordID: id)
             contactRecord["name"] = contact.name
             contactRecord["phoneNumber"] = contact.phoneNumber
 
@@ -132,7 +132,7 @@ final class ViewModel {
     /// - Returns: An array of grouped contacts (a zone/group name and an array of `Contact` objects).
     private func fetchContacts(
         scope: CKDatabase.Scope,
-        in zones: [CKNetwork]
+        in zones: [CKFlight]
     ) async throws -> [ContactGroup] {
         guard !zones.isEmpty else {
             return []
@@ -142,8 +142,8 @@ final class ViewModel {
         var allContacts: [ContactGroup] = []
 
         // Inner function retrieving and converting all Contact records for a single zone.
-        @Sendable func contactsInZone(_ zone: CKNetwork) async throws -> [Contact] {
-            if zone.zoneID == CKNetwork.default().zoneID {
+        @Sendable func contactsInZone(_ zone: CKFlight) async throws -> [Contact] {
+            if zone.zoneID == CKFlight.default().zoneID {
                 return []
             }
 
@@ -170,7 +170,7 @@ final class ViewModel {
         }
 
         // Using this task group, fetch each zone's contacts in parallel.
-        try await withThrowingTaskGroup(of: (CKNetwork, [Contact]).self) { group in
+        try await withThrowingTaskGroup(of: (CKFlight, [Contact]).self) { group in
             for zone in zones {
                 group.addTask {
                     (zone, try await contactsInZone(zone))

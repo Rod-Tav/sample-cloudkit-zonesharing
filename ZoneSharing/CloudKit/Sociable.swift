@@ -8,13 +8,22 @@
 import Foundation
 
 protocol Sociable: Identifiable, Sendable {
-    func getSocialID() -> String?
-    func getStation() -> CKStation?
-    func getNetwork() -> CKNetwork?
+    /// The type of items being paginated (e.g., User, FeedItem, Comment)
+    associatedtype Item: Identifiable
+    
+    var airplane: Airplane<Item> { get set }
+    var terminal: CKTerminal { get set }
+    
+    func tripID() -> String?
+    func trip(from terminal: CKTerminal) -> CKFlight?
 }
 
 extension Sociable {
-    func getSocialID(_ station: CKStation) -> String? { getNetwork()?.socialID }
-    func getStation() -> CKStation? { return nil }
-    func getNetwork(_ station: CKStation) -> CKNetwork? { return nil }
+    func tripID(from terminal: CKTerminal) -> Airplane<Item> {
+        return Airplane(zone: trip(from: terminal)?.zoneID.zoneName)
+    }
+    
+    func trip(from terminal: CKTerminal) -> CKFlight? {
+        return CKFlight(zoneID: terminal.gate)
+    }
 }
