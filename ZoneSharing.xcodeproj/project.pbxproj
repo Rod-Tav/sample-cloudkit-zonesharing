@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		55F2FDDD2F4FF70D00CAFE0C /* Securable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDDC2F4FF70D00CAFE0C /* Securable.swift */; };
+		55F2FDDD2F4FF70D00CAFE0C /* Sociable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDDC2F4FF70D00CAFE0C /* Sociable.swift */; };
 		A1B2C3D42816300000000004 /* ContentView-Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D12816300000000001 /* ContentView-Functions.swift */; };
 		A1B2C3D52816300000000005 /* SecureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D22816300000000002 /* SecureData.swift */; };
 		A1B2C3D62816300000000006 /* View-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D32816300000000003 /* View-Extensions.swift */; };
@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		55F2FDDC2F4FF70D00CAFE0C /* Securable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Securable.swift; sourceTree = "<group>"; };
+		55F2FDDC2F4FF70D00CAFE0C /* Sociable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sociable.swift; sourceTree = "<group>"; };
 		A1B2C3D12816300000000001 /* ContentView-Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-Functions.swift"; sourceTree = "<group>"; };
 		A1B2C3D22816300000000002 /* SecureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureData.swift; sourceTree = "<group>"; };
 		A1B2C3D32816300000000003 /* View-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Extensions.swift"; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				A1B2C3D22816300000000002 /* SecureData.swift */,
-				55F2FDDC2F4FF70D00CAFE0C /* Securable.swift */,
+				55F2FDDC2F4FF70D00CAFE0C /* Sociable.swift */,
 			);
 			path = CloudKit;
 			sourceTree = "<group>";
@@ -329,7 +329,7 @@
 				F4F53D182816293000520729 /* AppDelegate.swift in Sources */,
 				F4F53D122816291000520729 /* Contact.swift in Sources */,
 				F4F53D1A2816294B00520729 /* Config.swift in Sources */,
-				55F2FDDD2F4FF70D00CAFE0C /* Securable.swift in Sources */,
+				55F2FDDD2F4FF70D00CAFE0C /* Sociable.swift in Sources */,
 				F4F53D142816291000520729 /* AddContactView.swift in Sources */,
 				F4F53D2428163E8700520729 /* ContactGroup.swift in Sources */,
 				F4F53D162816291000520729 /* ContentView.swift in Sources */,

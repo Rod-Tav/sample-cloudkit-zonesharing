@@ -92,8 +92,8 @@ final class ViewModel {
             let zone = SecureSocialGroup(zoneName: group)
             try await database.save(zone)
             
-            let id = SecureData.ID(zoneID: zone.zoneID)
-            let contactRecord = SecureData(recordType: "SharedContact", recordID: id)
+            let id = SecureGroup.ID(zoneID: zone.zoneID)
+            let contactRecord = SecureGroup(recordType: "SharedContact", recordID: id)
             contactRecord["name"] = contact.name
             contactRecord["phoneNumber"] = contact.phoneNumber
 

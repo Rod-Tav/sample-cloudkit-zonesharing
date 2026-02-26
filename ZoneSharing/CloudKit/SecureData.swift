@@ -1,5 +1,5 @@
 //
-//  SecureData.swift
+//  SecureGroup.swift
 //  ZoneSharing
 //
 //  Created by Rod Tavangar on 2/24/26.
@@ -7,10 +7,10 @@
 
 import CloudKit
 
-public typealias SecureData = CKRecord
+public typealias SecureGroup = CKRecord
 public typealias SecureSocialGroup = CKRecordZone
 
-public extension SecureData {
+public extension SecureGroup {
     internal var genericID: String {
         return self.recordID.recordName
     }
@@ -23,9 +23,9 @@ public extension SecureData {
     }
     
     internal struct InvalidStation: LocalizedError {
-        let station: SecureData
+        let station: SecureGroup
         
-        init(_ station: SecureData) {
+        init(_ station: SecureGroup) {
             self.station = station
         }
 
