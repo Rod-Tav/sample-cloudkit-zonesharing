@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		55F2FDDD2F4FF70D00CAFE0C /* Sociable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDDC2F4FF70D00CAFE0C /* Sociable.swift */; };
+		553982B72F50D3ED002E0A62 /* Passengers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553982B62F50D3ED002E0A62 /* Passengers.swift */; };
+		553982B92F50D6C8002E0A62 /* CKFlights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553982B82F50D6C8002E0A62 /* CKFlights.swift */; };
+		553982BC2F50DC98002E0A62 /* SocialState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553982BB2F50DC98002E0A62 /* SocialState.swift */; };
+		5573092B2F50E6B90017DCA1 /* ObservablePassengers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573092A2F50E6B90017DCA1 /* ObservablePassengers.swift */; };
+		55F2FDDD2F4FF70D00CAFE0C /* Socialite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDDC2F4FF70D00CAFE0C /* Socialite.swift */; };
 		55F2FDDF2F50399200CAFE0C /* CKFlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDDE2F50399200CAFE0C /* CKFlight.swift */; };
 		55F2FDE12F504FF200CAFE0C /* Airplane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDE02F504FF200CAFE0C /* Airplane.swift */; };
 		55F2FDE52F50B6D400CAFE0C /* CKPassenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDE42F50B6D400CAFE0C /* CKPassenger.swift */; };
@@ -18,7 +22,7 @@
 		F4F53CE12816285200520729 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F53CE02816285200520729 /* Preview Assets.xcassets */; };
 		F4F53CEB2816285200520729 /* ZoneSharingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F53CEA2816285200520729 /* ZoneSharingTests.swift */; };
 		F4F53D122816291000520729 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F53D0B2816291000520729 /* Contact.swift */; };
-		F4F53D132816291000520729 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F53D0D2816291000520729 /* ViewModel.swift */; };
+		F4F53D132816291000520729 /* Sociable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F53D0D2816291000520729 /* Sociable.swift */; };
 		F4F53D142816291000520729 /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F53D0F2816291000520729 /* AddContactView.swift */; };
 		F4F53D152816291000520729 /* CloudSharingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F53D102816291000520729 /* CloudSharingView.swift */; };
 		F4F53D162816291000520729 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F53D112816291000520729 /* ContentView.swift */; };
@@ -39,7 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		55F2FDDC2F4FF70D00CAFE0C /* Sociable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sociable.swift; sourceTree = "<group>"; };
+		553982B62F50D3ED002E0A62 /* Passengers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passengers.swift; sourceTree = "<group>"; };
+		553982B82F50D6C8002E0A62 /* CKFlights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKFlights.swift; sourceTree = "<group>"; };
+		553982BB2F50DC98002E0A62 /* SocialState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialState.swift; sourceTree = "<group>"; };
+		5573092A2F50E6B90017DCA1 /* ObservablePassengers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservablePassengers.swift; sourceTree = "<group>"; };
+		55F2FDDC2F4FF70D00CAFE0C /* Socialite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socialite.swift; sourceTree = "<group>"; };
 		55F2FDDE2F50399200CAFE0C /* CKFlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKFlight.swift; sourceTree = "<group>"; };
 		55F2FDE02F504FF200CAFE0C /* Airplane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airplane.swift; sourceTree = "<group>"; };
 		55F2FDE42F50B6D400CAFE0C /* CKPassenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKPassenger.swift; sourceTree = "<group>"; };
@@ -52,7 +60,7 @@
 		F4F53CE62816285200520729 /* ZoneSharingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZoneSharingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F53CEA2816285200520729 /* ZoneSharingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneSharingTests.swift; sourceTree = "<group>"; };
 		F4F53D0B2816291000520729 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
-		F4F53D0D2816291000520729 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		F4F53D0D2816291000520729 /* Sociable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sociable.swift; sourceTree = "<group>"; };
 		F4F53D0F2816291000520729 /* AddContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
 		F4F53D102816291000520729 /* CloudSharingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudSharingView.swift; sourceTree = "<group>"; };
 		F4F53D112816291000520729 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +91,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		553982BA2F50DC8D002E0A62 /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				F4F53D0D2816291000520729 /* Sociable.swift */,
+				55F2FDDC2F4FF70D00CAFE0C /* Socialite.swift */,
+				553982BB2F50DC98002E0A62 /* SocialState.swift */,
+			);
+			path = Social;
+			sourceTree = "<group>";
+		};
 		A1B2C3D72816300000000007 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,10 +140,11 @@
 		A1B2C3DB281630000000000B /* CloudKit */ = {
 			isa = PBXGroup;
 			children = (
+				553982BA2F50DC8D002E0A62 /* Social */,
 				A1B2C3D22816300000000002 /* CKGate.swift */,
 				55F2FDDE2F50399200CAFE0C /* CKFlight.swift */,
-				55F2FDDC2F4FF70D00CAFE0C /* Sociable.swift */,
 				55F2FDE42F50B6D400CAFE0C /* CKPassenger.swift */,
+				553982B82F50D6C8002E0A62 /* CKFlights.swift */,
 			);
 			path = CloudKit;
 			sourceTree = "<group>";
@@ -160,10 +179,9 @@
 		F4F53CD82816285100520729 /* ZoneSharing */ = {
 			isa = PBXGroup;
 			children = (
+				F4F53D03281628CC00520729 /* App */,
 				F4F53D0A2816291000520729 /* Models */,
 				F4F53D0E2816291000520729 /* Views */,
-				F4F53D0C2816291000520729 /* ViewModels */,
-				F4F53D03281628CC00520729 /* App */,
 				A1B2C3DB281630000000000B /* CloudKit */,
 				A1B2C3DC281630000000000C /* Helpers */,
 				F4F53CDF2816285200520729 /* Preview Content */,
@@ -203,16 +221,10 @@
 			children = (
 				F4F53D0B2816291000520729 /* Contact.swift */,
 				55F2FDE02F504FF200CAFE0C /* Airplane.swift */,
+				553982B62F50D3ED002E0A62 /* Passengers.swift */,
+				5573092A2F50E6B90017DCA1 /* ObservablePassengers.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		F4F53D0C2816291000520729 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				F4F53D0D2816291000520729 /* ViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		F4F53D0E2816291000520729 /* Views */ = {
@@ -332,20 +344,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				553982B92F50D6C8002E0A62 /* CKFlights.swift in Sources */,
 				F4F53D182816293000520729 /* AppDelegate.swift in Sources */,
 				F4F53D122816291000520729 /* Contact.swift in Sources */,
 				55F2FDE52F50B6D400CAFE0C /* CKPassenger.swift in Sources */,
 				55F2FDDF2F50399200CAFE0C /* CKFlight.swift in Sources */,
 				F4F53D1A2816294B00520729 /* Config.swift in Sources */,
-				55F2FDDD2F4FF70D00CAFE0C /* Sociable.swift in Sources */,
+				55F2FDDD2F4FF70D00CAFE0C /* Socialite.swift in Sources */,
 				F4F53D142816291000520729 /* AddContactView.swift in Sources */,
 				F4F53D162816291000520729 /* ContentView.swift in Sources */,
 				A1B2C3D42816300000000004 /* ContentView-Functions.swift in Sources */,
+				553982BC2F50DC98002E0A62 /* SocialState.swift in Sources */,
+				5573092B2F50E6B90017DCA1 /* ObservablePassengers.swift in Sources */,
 				F4F53D152816291000520729 /* CloudSharingView.swift in Sources */,
-				F4F53D132816291000520729 /* ViewModel.swift in Sources */,
+				F4F53D132816291000520729 /* Sociable.swift in Sources */,
 				F4F53D1C28162A6A00520729 /* SceneDelegate.swift in Sources */,
 				55F2FDE12F504FF200CAFE0C /* Airplane.swift in Sources */,
 				A1B2C3D52816300000000005 /* CKGate.swift in Sources */,
+				553982B72F50D3ED002E0A62 /* Passengers.swift in Sources */,
 				A1B2C3D62816300000000006 /* View-Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

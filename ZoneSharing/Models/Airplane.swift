@@ -6,19 +6,12 @@
 //
 
 import Foundation
+import CloudKit
 
-/// Pre-resolved airplane data for synchronous view access.
-struct FlightManifest: Identifiable {
-    let id: String
-    let gate: String
-    let passengers: [Contact]
-    let airplane: Airplane<Contact>
-}
-
-public actor Airplane<T: Identifiable>: Identifiable {
+public actor Airplane<T: Socialite>: Sendable {
     public let id: String
     var flight: CKFlight?
-    private(set) var passengers: [T] = []
+    private(set) var passengers = Set<T>()
 
     var gate: String? {
         flight?.flightID
@@ -30,10 +23,10 @@ public actor Airplane<T: Identifiable>: Identifiable {
     }
 
     func board(_ passenger: T) {
-        passengers.append(passenger)
+        passengers.insert(passenger)
     }
 
-    func deplane(_ object: T) {
-        passengers.removeAll(where: { $0.id == object.id })
+    func deplane(_ passenger: T) {
+        passengers.remove(passenger)
     }
 }

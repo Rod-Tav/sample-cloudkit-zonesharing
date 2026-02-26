@@ -78,7 +78,7 @@ class ZoneSharingTests: XCTestCase {
             return
         }
 
-        idsToDelete.append(testContact.record.recordID)
+        idsToDelete.append(testContact.passenger.recordID)
         let flightZoneID = await manifest.airplane.flight!.zoneID
         zoneIDsToDelete.append(flightZoneID)
 
@@ -101,16 +101,19 @@ class ZoneSharingTests: XCTestCase {
 
     /// Simple function to create and save a new `Contact` to test with. Immediately fails on any error.
     private func createTestContact() async throws {
+        let contact = Contact(
+            id: UUID().uuidString,
+            name: testContactName,
+            phoneNumber: "555-123-4567",
+            passenger: CKPassenger(name: "Contact"),
+            gate: viewModel.gate
+        )
         let flight = CKFlight(zoneName: testContactGroup)
-        let fields: [String: CKRecordValue] = [
-            "name": testContactName as CKRecordValue,
-            "phoneNumber": "555-123-4567" as CKRecordValue
-        ]
-        try await viewModel.gate.checkIn(fields, onto: flight)
+        try await viewModel.gate.checkIn(contact, onto: flight)
     }
 
     /// Uses the gate to fetch private contacts. Immediately fails on any error.
-    private func fetchPrivateContacts() async throws -> [FlightManifest] {
-        try await viewModel.gate.fetchAllContacts()
+    private func fetchPrivateContacts() async throws -> [Passengers<Contact>] {
+        try await viewModel.gate.fetchAll()
     }
 }

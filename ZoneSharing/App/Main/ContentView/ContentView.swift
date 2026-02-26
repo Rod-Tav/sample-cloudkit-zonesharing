@@ -10,7 +10,7 @@ struct ContentView: View {
 
     // MARK: - Properties & State
 
-    @State internal var vm = ViewModel()
+    @State internal var passengers = ObservablePassengers()
 
     @State internal var isAddingContact = false
     @State internal var isSharing = false
@@ -20,7 +20,9 @@ struct ContentView: View {
     @State internal var activeContainer: CKContainer?
 
     internal var showProgress: Bool {
-        if case .loading = vm.state {
+        @Bindable var passengers = passengers
+        
+        if case .loading = passengers {
             return true
         } else if isProcessingShare {
             return true
@@ -83,10 +85,11 @@ private extension ContentView {
     }
 
     // MARK: Loaded Content
-    func loadedContent(_ privateFlights: [FlightManifest], _ sharedFlights: [FlightManifest]) -> some View {
+    func loadedContent(_ privateFlights: [Passengers<Contact>], _ sharedFlights: [Passengers<Contact>]) -> some View {
         List {
             ForEach(privateFlights) { manifest in
                 Section {
+                    // advanced list
                     ForEach(manifest.passengers) { contactRowView(for: $0) }
                 } header: {
                     Text("Private Flight: \(manifest.gate)")
@@ -171,7 +174,7 @@ private extension ContentView {
         phoneNumber: "(888) 555-5512"
     )
 
-    let previewManifest = FlightManifest(
+    let previewManifest = Passengers<Contact>(
         id: UUID().uuidString,
         gate: "Preview Group",
         passengers: [previewContact],

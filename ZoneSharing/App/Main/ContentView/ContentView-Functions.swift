@@ -14,20 +14,16 @@ extension ContentView {
             id: UUID().uuidString,
             name: name,
             phoneNumber: phoneNumber,
-            passenger: CKPassenger(ticket: "SharedContact"),
+            passenger: CKPassenger(name: "Contact"),
             gate: vm.gate
         )
         let flight = CKFlight(zoneName: group)
-        let fields: [String: CKRecordValue] = [
-            "name": contact.name as CKRecordValue,
-            "phoneNumber": contact.phoneNumber as CKRecordValue
-        ]
-        try await vm.gate.checkIn(fields, onto: flight)
+        try await vm.gate.checkIn(contact, onto: flight)
         try await vm.refresh()
         isAddingContact = false
     }
 
-    internal func shareGroup(_ manifest: FlightManifest) async throws {
+    internal func shareGroup(_ manifest: Passengers<Contact>) async throws {
         isProcessingShare = true
 
         do {

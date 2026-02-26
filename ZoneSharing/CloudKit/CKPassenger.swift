@@ -10,8 +10,13 @@ import CloudKit
 
 public typealias CKPassenger = CKRecord
 
+
 public extension CKPassenger {
-    convenience init(ticket: String) {
-        self.init(recordType: ticket)
+    func getName() -> String {
+        return self.recordType
+    }
+    
+    convenience init(name: String) {
+        self.init(recordType: name)
     }
 }
