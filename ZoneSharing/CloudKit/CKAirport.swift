@@ -1,12 +1,26 @@
 //
-//  CKFlights.swift
+//  CKAirport.swift
 //  ZoneSharing
 //
 //  Created by Rod Tavangar on 2/26/26.
 //
 
 import Foundation
-import CloudKit
+
+public protocol CKAirport: Sociable {
+    var id: String { get set }
+    var name: String { get set }
+    
+    associatedtype Passenger: Socialite
+    
+    func getFlights() -> Set<CKFlight>
+}
+
+extension CKAirport {
+    func getFlights(from terminal: any CKTerminal) -> Set<CKFlight> {
+        return terminal.getFlights()
+    }
+}
 
 @Observable @MainActor
 final class FlightStore {

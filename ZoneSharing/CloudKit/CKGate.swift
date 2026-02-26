@@ -8,15 +8,31 @@
 import CloudKit
 import SwiftUI
 
-@MainActor public struct CKGate: Sendable {
-    let airport: CKContainer
-    let terminal: CKDatabase
+@Observable @MainActor public class CKGate: Sociable {
+    var id = UUID()
+    var name: String
+    var airport: CKContainer
+    var terminal: CKDatabase
+    
+    func getPassengers() async throws -> Set<CKPassenger>
+    func depart(_ flight: CKFlight) async throws
+}
+    
+//    init(airport: CKContainer, terminal: CKDatabase) {
+//        self.airport = airport
+//        self.terminal = terminal
+//    }
 
-    // MARK: - Flight operations (saving to CloudKit)
-
-    func depart(_ zone: CKFlight, carrying records: [CKRecord]) async throws {
+extension CKGate {
+    func getPassengers() async throws -> Set<CKPassenger> {
+        return air
+    }
+    
+    func getF
+    
+    func depart(_ flight: CKFlight, carrying records: [CKRecord]) async throws {
         try await terminal.save(zone)
-        for record in records { try await terminal.save(record) }
+        for passenger in flight.getPassengers() { try await terminal.save(record) }
     }
 
     func saveZone(_ zone: CKFlight) async throws {
@@ -45,7 +61,7 @@ import SwiftUI
     /// Socialite-aware check-in: serializes the passenger's fields and saves to the flight.
     @discardableResult
     func checkIn<T: Socialite>(_ passenger: T, onto flight: CKFlight) async throws -> CKRecord {
-        try await checkIn(passenger.fields, onto: flight, recordType: "Shared\(passenger.passenger.name)")
+        try await checkIn(passenger.fields as! [String : any CKRecordValue], onto: flight, recordType: passenger.name)
     }
 
     // MARK: - Share operations
@@ -71,7 +87,7 @@ import SwiftUI
     // MARK: - Fetching contacts
 
     /// Fetches all passengers by discovering zones on this gate's terminal.
-    func fetchAll<T: Socialite>() async throws -> [Passengers<T>] {
+    func getPassengers<T: Socialite>() async throws -> [Passengers<T>] {
         let zones = try await terminal.allRecordZones()
             .filter { $0.zoneID != CKFlight.default().zoneID }
         return try await fetch(in: zones)

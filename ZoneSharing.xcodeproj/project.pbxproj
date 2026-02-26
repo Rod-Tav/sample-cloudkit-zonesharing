@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		553982B72F50D3ED002E0A62 /* Passengers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553982B62F50D3ED002E0A62 /* Passengers.swift */; };
-		553982B92F50D6C8002E0A62 /* CKFlights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553982B82F50D6C8002E0A62 /* CKFlights.swift */; };
 		553982BC2F50DC98002E0A62 /* SocialState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553982BB2F50DC98002E0A62 /* SocialState.swift */; };
 		5573092B2F50E6B90017DCA1 /* ObservablePassengers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573092A2F50E6B90017DCA1 /* ObservablePassengers.swift */; };
+		5573092E2F50FDFC0017DCA1 /* CKTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573092D2F50FDFC0017DCA1 /* CKTerminal.swift */; };
+		557309302F5100AF0017DCA1 /* CKAirport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573092F2F5100AF0017DCA1 /* CKAirport.swift */; };
 		55F2FDDD2F4FF70D00CAFE0C /* Socialite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDDC2F4FF70D00CAFE0C /* Socialite.swift */; };
-		55F2FDDF2F50399200CAFE0C /* CKFlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDDE2F50399200CAFE0C /* CKFlight.swift */; };
+		55F2FDDF2F50399200CAFE0C /* CKAirplane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDDE2F50399200CAFE0C /* CKAirplane.swift */; };
 		55F2FDE12F504FF200CAFE0C /* Airplane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDE02F504FF200CAFE0C /* Airplane.swift */; };
 		55F2FDE52F50B6D400CAFE0C /* CKPassenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDE42F50B6D400CAFE0C /* CKPassenger.swift */; };
 		A1B2C3D42816300000000004 /* ContentView-Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D12816300000000001 /* ContentView-Functions.swift */; };
@@ -44,11 +45,12 @@
 
 /* Begin PBXFileReference section */
 		553982B62F50D3ED002E0A62 /* Passengers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passengers.swift; sourceTree = "<group>"; };
-		553982B82F50D6C8002E0A62 /* CKFlights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKFlights.swift; sourceTree = "<group>"; };
 		553982BB2F50DC98002E0A62 /* SocialState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialState.swift; sourceTree = "<group>"; };
 		5573092A2F50E6B90017DCA1 /* ObservablePassengers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservablePassengers.swift; sourceTree = "<group>"; };
+		5573092D2F50FDFC0017DCA1 /* CKTerminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKTerminal.swift; sourceTree = "<group>"; };
+		5573092F2F5100AF0017DCA1 /* CKAirport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKAirport.swift; sourceTree = "<group>"; };
 		55F2FDDC2F4FF70D00CAFE0C /* Socialite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socialite.swift; sourceTree = "<group>"; };
-		55F2FDDE2F50399200CAFE0C /* CKFlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKFlight.swift; sourceTree = "<group>"; };
+		55F2FDDE2F50399200CAFE0C /* CKAirplane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKAirplane.swift; sourceTree = "<group>"; };
 		55F2FDE02F504FF200CAFE0C /* Airplane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airplane.swift; sourceTree = "<group>"; };
 		55F2FDE42F50B6D400CAFE0C /* CKPassenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKPassenger.swift; sourceTree = "<group>"; };
 		A1B2C3D12816300000000001 /* ContentView-Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-Functions.swift"; sourceTree = "<group>"; };
@@ -142,9 +144,10 @@
 			children = (
 				553982BA2F50DC8D002E0A62 /* Social */,
 				A1B2C3D22816300000000002 /* CKGate.swift */,
-				55F2FDDE2F50399200CAFE0C /* CKFlight.swift */,
+				55F2FDDE2F50399200CAFE0C /* CKAirplane.swift */,
 				55F2FDE42F50B6D400CAFE0C /* CKPassenger.swift */,
-				553982B82F50D6C8002E0A62 /* CKFlights.swift */,
+				5573092D2F50FDFC0017DCA1 /* CKTerminal.swift */,
+				5573092F2F5100AF0017DCA1 /* CKAirport.swift */,
 			);
 			path = CloudKit;
 			sourceTree = "<group>";
@@ -344,13 +347,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				553982B92F50D6C8002E0A62 /* CKFlights.swift in Sources */,
+				5573092E2F50FDFC0017DCA1 /* CKTerminal.swift in Sources */,
 				F4F53D182816293000520729 /* AppDelegate.swift in Sources */,
 				F4F53D122816291000520729 /* Contact.swift in Sources */,
 				55F2FDE52F50B6D400CAFE0C /* CKPassenger.swift in Sources */,
-				55F2FDDF2F50399200CAFE0C /* CKFlight.swift in Sources */,
+				55F2FDDF2F50399200CAFE0C /* CKAirplane.swift in Sources */,
 				F4F53D1A2816294B00520729 /* Config.swift in Sources */,
 				55F2FDDD2F4FF70D00CAFE0C /* Socialite.swift in Sources */,
+				557309302F5100AF0017DCA1 /* CKAirport.swift in Sources */,
 				F4F53D142816291000520729 /* AddContactView.swift in Sources */,
 				F4F53D162816291000520729 /* ContentView.swift in Sources */,
 				A1B2C3D42816300000000004 /* ContentView-Functions.swift in Sources */,

@@ -2,7 +2,7 @@
 
 ### Goals
 
-This project demonstrates sharing CloudKit records across user accounts with the Sociable protocol, as opposed to the zone sharing model, which came after the hierarchical model used by the other CloudKit Sharing sample project [here](https://github.com/apple/cloudkit-sample-sharing).
+This project demonstrates sharing CloudKit records across user accounts with the Sociable and Socialite protocols, as opposed to the zone sharing model, which came after the hierarchical model used by the other CloudKit Sharing sample project [here](https://github.com/apple/cloudkit-sample-sharing).
 
 ### Prerequisites
 

@@ -8,7 +8,7 @@
 import Foundation
 import CloudKit
 
-@MainActor public protocol Socialite: Identifiable, Hashable, Sendable {
+@MainActor public protocol Socialite: Sociable {
     associatedtype Passenger: Socialite
 
     var passenger: CKPassenger { get }
@@ -19,7 +19,7 @@ import CloudKit
     static func arrive(from passenger: CKPassenger, at gate: CKGate) -> Self?
 
     /// The CloudKit-serializable fields for this passenger.
-    var fields: [String: CKRecordValue] { get }
+    var fields: [String: CKPassenger] { get }
 
     func getTrip(from gate: CKGate) async -> CKFlight?
 
@@ -27,12 +27,6 @@ import CloudKit
         private: [Passengers<Self>],
         shared: [Passengers<Self>]
     ) where S.Item == Self
-}
-
-extension Socialite where Self: Equatable {
-    func equals(lhs: Contact, rhs: Contact) -> Bool {
-        lhs.passenger.name == rhs.passenger.name
-    }
 }
 
 extension Socialite {

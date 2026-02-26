@@ -11,7 +11,7 @@ import Observation
 
 @available(iOS 17.0, *)
 @MainActor
-public protocol Sociable: AnyObject, Observable {
+public protocol Sociable: AnyObject, Observable, Sendable, Identifiable, Hashable, Equatable {
     associatedtype Item: Socialite
    
     var state: SocialState<Item> { get set }
@@ -22,9 +22,17 @@ public protocol Sociable: AnyObject, Observable {
     func refresh() async throws
 }
 
+extension Sociable where Self: Equatable {
+    func equals(lhs: any Socialite, rhs: any Socialite) -> Bool {
+        lhs.passenger.getName() == rhs.passenger.getName() // hooray!
+    }
+}
+
 extension Sociable {
     func startSocializing() async throws {
         self.gate = CKGate.privateGate(containerIdentifier: Config.containerIdentifier)
+        
+        self.currentPassenger = gate.terminal.getPassengers()
        
         if let recordID = try? await gate.airport.userRecordID() {
             self.currentPassenger = try await gate.airport.userRecordID()
