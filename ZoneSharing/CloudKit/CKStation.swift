@@ -15,6 +15,10 @@ public extension CKStation {
     var stationID: CKRecordZone.ID { self.recordID.zoneID }
 }
 
+public extension CKNetwork {
+    var socialID: String { self.zoneID.zoneName }
+}
+
 public extension CKStation {
     internal var genericID: String {
         return self.recordID.recordName

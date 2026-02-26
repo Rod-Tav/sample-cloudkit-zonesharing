@@ -14,7 +14,7 @@ protocol Sociable: Identifiable, Sendable {
 }
 
 extension Sociable {
-    func getSocialID(_ station: CKStation) -> String? { getNetwork()?.zoneID.zoneName }
+    func getSocialID(_ station: CKStation) -> String? { getNetwork()?.socialID }
     func getStation() -> CKStation? { return nil }
     func getNetwork(_ station: CKStation) -> CKNetwork? { return nil }
 }
