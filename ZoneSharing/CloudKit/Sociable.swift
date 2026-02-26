@@ -1,5 +1,5 @@
 //
-//  Securable.swift
+//  Sociable.swift
 //  ZoneSharing
 //
 //  Created by Rod Tavangar on 2/25/26.
@@ -14,7 +14,7 @@ public protocol Sociable: Identifiable, Sendable {
     var airplane: Airplane<Passenger> { get set }
     var airport: CKAirport { get set }
     
-    func trip(from airport: Airport<Passenger>) -> CKFlight?
+    func trip(from airport: Airport<Passenger>) async -> CKFlight?
 }
 
 extension Sociable {
