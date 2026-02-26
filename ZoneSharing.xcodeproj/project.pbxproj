@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55F2FDDD2F4FF70D00CAFE0C /* Securable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDDC2F4FF70D00CAFE0C /* Securable.swift */; };
 		A1B2C3D42816300000000004 /* ContentView-Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D12816300000000001 /* ContentView-Functions.swift */; };
-		A1B2C3D52816300000000005 /* CKStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D22816300000000002 /* CKStation.swift */; };
+		A1B2C3D52816300000000005 /* SecureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D22816300000000002 /* SecureData.swift */; };
 		A1B2C3D62816300000000006 /* View-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D32816300000000003 /* View-Extensions.swift */; };
 		F4F53CDE2816285200520729 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F53CDD2816285200520729 /* Assets.xcassets */; };
 		F4F53CE12816285200520729 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F53CE02816285200520729 /* Preview Assets.xcassets */; };
@@ -36,8 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55F2FDDC2F4FF70D00CAFE0C /* Securable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Securable.swift; sourceTree = "<group>"; };
 		A1B2C3D12816300000000001 /* ContentView-Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-Functions.swift"; sourceTree = "<group>"; };
-		A1B2C3D22816300000000002 /* CKStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKStation.swift; sourceTree = "<group>"; };
+		A1B2C3D22816300000000002 /* SecureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureData.swift; sourceTree = "<group>"; };
 		A1B2C3D32816300000000003 /* View-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Extensions.swift"; sourceTree = "<group>"; };
 		F4F53CD62816285100520729 /* ZoneSharing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZoneSharing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F53CDD2816285200520729 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,7 +118,8 @@
 		A1B2C3DB281630000000000B /* CloudKit */ = {
 			isa = PBXGroup;
 			children = (
-				A1B2C3D22816300000000002 /* CKStation.swift */,
+				A1B2C3D22816300000000002 /* SecureData.swift */,
+				55F2FDDC2F4FF70D00CAFE0C /* Securable.swift */,
 			);
 			path = CloudKit;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				F4F53D182816293000520729 /* AppDelegate.swift in Sources */,
 				F4F53D122816291000520729 /* Contact.swift in Sources */,
 				F4F53D1A2816294B00520729 /* Config.swift in Sources */,
+				55F2FDDD2F4FF70D00CAFE0C /* Securable.swift in Sources */,
 				F4F53D142816291000520729 /* AddContactView.swift in Sources */,
 				F4F53D2428163E8700520729 /* ContactGroup.swift in Sources */,
 				F4F53D162816291000520729 /* ContentView.swift in Sources */,
@@ -333,7 +337,7 @@
 				F4F53D152816291000520729 /* CloudSharingView.swift in Sources */,
 				F4F53D132816291000520729 /* ViewModel.swift in Sources */,
 				F4F53D1C28162A6A00520729 /* SceneDelegate.swift in Sources */,
-				A1B2C3D52816300000000005 /* CKStation.swift in Sources */,
+				A1B2C3D52816300000000005 /* SecureData.swift in Sources */,
 				A1B2C3D62816300000000006 /* View-Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
