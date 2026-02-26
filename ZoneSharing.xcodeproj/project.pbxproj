@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		55F2FDDD2F4FF70D00CAFE0C /* Sociable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDDC2F4FF70D00CAFE0C /* Sociable.swift */; };
 		55F2FDDF2F50399200CAFE0C /* CKFlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDDE2F50399200CAFE0C /* CKFlight.swift */; };
+		55F2FDE12F504FF200CAFE0C /* Airplane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDE02F504FF200CAFE0C /* Airplane.swift */; };
 		A1B2C3D42816300000000004 /* ContentView-Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D12816300000000001 /* ContentView-Functions.swift */; };
 		A1B2C3D52816300000000005 /* CKTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D22816300000000002 /* CKTerminal.swift */; };
 		A1B2C3D62816300000000006 /* View-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D32816300000000003 /* View-Extensions.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		55F2FDDC2F4FF70D00CAFE0C /* Sociable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sociable.swift; sourceTree = "<group>"; };
 		55F2FDDE2F50399200CAFE0C /* CKFlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKFlight.swift; sourceTree = "<group>"; };
+		55F2FDE02F504FF200CAFE0C /* Airplane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airplane.swift; sourceTree = "<group>"; };
 		A1B2C3D12816300000000001 /* ContentView-Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-Functions.swift"; sourceTree = "<group>"; };
 		A1B2C3D22816300000000002 /* CKTerminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKTerminal.swift; sourceTree = "<group>"; };
 		A1B2C3D32816300000000003 /* View-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Extensions.swift"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				F4F53D0B2816291000520729 /* Contact.swift */,
+				55F2FDE02F504FF200CAFE0C /* Airplane.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				F4F53D152816291000520729 /* CloudSharingView.swift in Sources */,
 				F4F53D132816291000520729 /* ViewModel.swift in Sources */,
 				F4F53D1C28162A6A00520729 /* SceneDelegate.swift in Sources */,
+				55F2FDE12F504FF200CAFE0C /* Airplane.swift in Sources */,
 				A1B2C3D52816300000000005 /* CKTerminal.swift in Sources */,
 				A1B2C3D62816300000000006 /* View-Extensions.swift in Sources */,
 			);

@@ -15,25 +15,3 @@ public extension CKFlight {
         self.zoneID.zoneName
     }
 }
-
-actor Airplane<T: Identifiable> {
-    let zone: CKFlight
-    private(set) var passengers: [T] = []
-
-    init(zone: CKFlight, passengers: [T] = []) {
-        self.zone = zone
-        self.passengers = passengers
-    }
-    
-    var gate: String {
-        zone.flightID
-    }
-
-    func board(_ passenger: T) {
-        passengers.append(passenger)
-    }
-
-    func deplane(_ object: T) {
-        passengers.removeAll(where: { $0.id == object.id } )
-    }
-}

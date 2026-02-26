@@ -14,15 +14,10 @@ protocol Sociable: Identifiable, Sendable {
     var airplane: Airplane<Item> { get set }
     var terminal: CKTerminal { get set }
     
-    func tripID() -> String?
     func trip(from terminal: CKTerminal) -> CKFlight?
 }
 
 extension Sociable {
-    func tripID(from terminal: CKTerminal) -> Airplane<Item> {
-        return Airplane(zone: trip(from: terminal)?.zoneID.zoneName)
-    }
-    
     func trip(from terminal: CKTerminal) -> CKFlight? {
         return CKFlight(zoneID: terminal.gate)
     }

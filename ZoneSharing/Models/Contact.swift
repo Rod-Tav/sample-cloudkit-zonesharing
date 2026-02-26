@@ -12,5 +12,6 @@ struct Contact: Identifiable, Sociable {
     let name: String
     let phoneNumber: String
     
-    var airplane = Airplane(zone: <#T##CKFlight#>, passengers: <#T##[Identifiable]#>)
+    var terminal: CKTerminal
+    var airplane = Airplane<Contact>()
 }
