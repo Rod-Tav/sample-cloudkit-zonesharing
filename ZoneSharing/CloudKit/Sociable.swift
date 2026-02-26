@@ -10,15 +10,16 @@ import CloudKit
 
 public protocol Sociable: Identifiable, Sendable {
     associatedtype Passenger: Sociable
-    
+
+    var passenger: CKPassenger { get }
     var airplane: Airplane<Passenger> { get set }
-    var airport: CKAirport { get set }
-    
-    func trip(from airport: Airport<Passenger>) async -> CKFlight?
+    var gate: CKGate { get set }
+
+    func trip(from gate: CKGate) async -> CKFlight?
 }
 
 extension Sociable {
-    func trip(from airport: Airport<Passenger>) async -> CKFlight? {
-        return await CKFlight(zoneName: airport.name)
+    func trip(from gate: CKGate) async -> CKFlight? {
+        return await airplane.flight
     }
 }

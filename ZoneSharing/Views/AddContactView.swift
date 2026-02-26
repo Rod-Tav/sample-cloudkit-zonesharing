@@ -11,6 +11,10 @@ struct AddContactView: View {
     @State private var nameInput: String = ""
     @State private var phoneInput: String = ""
     @State private var groupInput: String = ""
+    
+    private var canSave: Bool {
+        nameInput.isEmpty || phoneInput.isEmpty || groupInput.isEmpty
+    }
 
     /// What to do after user selects to add contact with given name and phone number.
     var onAdd: (String, String, String) async throws -> Void = { _,_,_ in }
@@ -61,12 +65,5 @@ extension AddContactView {
             }
             .disabled(canSave)
         }
-    }
-}
-
-// MARK: - Functions
-private extension AddContactView {
-    var canSave: Bool {
-        nameInput.isEmpty || phoneInput.isEmpty || groupInput.isEmpty
     }
 }

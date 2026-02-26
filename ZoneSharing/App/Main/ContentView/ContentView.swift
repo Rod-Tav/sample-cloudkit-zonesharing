@@ -18,7 +18,7 @@ struct ContentView: View {
 
     @State internal var activeShare: CKShare?
     @State internal var activeContainer: CKContainer?
-    
+
     internal var showProgress: Bool {
         if case .loading = vm.state {
             return true
@@ -37,9 +37,9 @@ struct ContentView: View {
                 .navigationTitle("Contacts")
                 .toolbar {
                     refreshButton
-                    
+
                     progressView
-                    
+
                     addContactButton
                 }
         }
@@ -70,8 +70,8 @@ private extension ContentView {
     var contentView: some View {
         Group {
             switch vm.state {
-            case let .loaded(privateContacts, sharedContacts):
-                loadedContent(privateContacts, sharedContacts)
+            case let .loaded(privateFlights, sharedFlights):
+                loadedContent(privateFlights, sharedFlights)
 
             case .error(let error):
                 errorContent(error)
@@ -81,43 +81,43 @@ private extension ContentView {
             }
         }
     }
-    
+
     // MARK: Loaded Content
-    func loadedContent(_ privateContacts: [ContactGroup], _ sharedContacts: [ContactGroup]) -> some View {
+    func loadedContent(_ privateFlights: [FlightManifest], _ sharedFlights: [FlightManifest]) -> some View {
         List {
-            ForEach(privateContacts) { contactGroup in
+            ForEach(privateFlights) { manifest in
                 Section {
-                    ForEach(contactGroup.contacts) { contactRowView(for: $0) }
+                    ForEach(manifest.passengers) { contactRowView(for: $0) }
                 } header: {
-                    Text("Private Group: \(contactGroup.name)")
+                    Text("Private Flight: \(manifest.gate)")
                 } footer: {
-                    Button("Share Group") { Task { try? await shareGroup(contactGroup) } }
+                    Button("Share Group") { Task { try? await shareGroup(manifest) } }
                 }
             }
-            
-            ForEach(sharedContacts) { contactGroup in
+
+            ForEach(sharedFlights) { manifest in
                 Section {
-                    ForEach(contactGroup.contacts) { contactRowView(for: $0) }
+                    ForEach(manifest.passengers) { contactRowView(for: $0) }
                 } header: {
-                    Text("Shared Group: \(contactGroup.name)")
+                    Text("Shared Flight: \(manifest.gate)")
                 }
             }
         }.listStyle(GroupedListStyle())
     }
-    
+
     /// Builds a Contact row view for display contact information in a List.
     func contactRowView(for contact: Contact) -> some View {
         HStack {
             VStack(alignment: .leading) {
                 Text(contact.name)
-                
+
                 Text(contact.phoneNumber)
                     .textContentType(.telephoneNumber)
                     .font(.footnote)
             }
         }
     }
-    
+
     // MARK: Error Content
     func errorContent(_ error: Error) -> some View {
         VStack {
@@ -125,7 +125,7 @@ private extension ContentView {
         }
         .maxHeight(spacer: .bottom)
     }
-    
+
     // MARK: Loading Content
     var loadingContent: some View  {
         VStack { EmptyView() }
@@ -143,7 +143,7 @@ private extension ContentView {
             }
         }
     }
-    
+
     /// This progress view will display when either the ViewModel is loading, or a share is processing.
     @ToolbarContentBuilder var progressView: some ToolbarContent {
         ToolbarItem(placement: .topBarLeading) {
@@ -152,7 +152,7 @@ private extension ContentView {
             }
         }
     }
-    
+
     @ToolbarContentBuilder var addContactButton: some ToolbarContent {
         ToolbarItem(placement: .topBarTrailing) {
             Button {
@@ -166,19 +166,18 @@ private extension ContentView {
 
 // MARK: - Preview
 #Preview {
-    @Previewable @State var previewContacts = ContactGroup(
-        zone: CKFlight(zoneName: "Preview Group"),
-        contacts:
-            [
-                Contact(
-                    id: UUID().uuidString,
-                    name: "John Appleseed",
-                    phoneNumber: "(888) 555-5512",
-                    associatedStation: CKAirport(recordType: "SharedContact")
-                )
-            ]
+    @Previewable @State var previewContact = Contact.preview(
+        name: "John Appleseed",
+        phoneNumber: "(888) 555-5512"
     )
-    
+
+    let previewManifest = FlightManifest(
+        id: UUID().uuidString,
+        gate: "Preview Group",
+        passengers: [previewContact],
+        airplane: Airplane<Contact>()
+    )
+
     ContentView()
-        .environment(ViewModel(state: .loaded(privateGroups: [previewContacts], sharedGroups: [previewContacts])))
+        .environment(ViewModel(state: .loaded(privateFlights: [previewManifest], sharedFlights: [previewManifest])))
 }

@@ -10,7 +10,7 @@ import CloudKit
 class ZoneSharingTests: XCTestCase {
 
     let viewModel = ViewModel()
-    var idsToDelete: [CKAirport.ID] = []
+    var idsToDelete: [CKRecord.ID] = []
     var zoneIDsToDelete: [CKFlight.ID] = []
 
     // MARK: - Setup & Tear Down
@@ -65,23 +65,24 @@ class ZoneSharingTests: XCTestCase {
         try await createTestContact()
         // Fetch private contacts, which should now contain the temporary contact.
         let privateContacts = try await fetchPrivateContacts()
-        
-        // Find the group of our test Contact.
-        guard let testContactGroup = privateContacts.first(where: { $0.name == testContactGroup }) else {
-            XCTFail("No matching test Contact Group (zone) found after fetching private contacts")
+
+        // Find the manifest of our test Contact.
+        guard let manifest = privateContacts.first(where: { $0.gate == testContactGroup }) else {
+            XCTFail("No matching test Flight Manifest (zone) found after fetching private contacts")
             return
         }
-        
-        // Find the test Contact in the group.
-        guard let testContact = testContactGroup.contacts.first(where: { $0.name == testContactName }) else {
+
+        // Find the test Contact in the manifest.
+        guard let testContact = manifest.passengers.first(where: { $0.name == testContactName }) else {
             XCTFail("No matching test Contact found after fetching private contacts")
             return
         }
 
-        idsToDelete.append(testContact.associatedStation.recordID)
-        zoneIDsToDelete.append(testContactGroup.zone.zoneID)
+        idsToDelete.append(testContact.record.recordID)
+        let flightZoneID = await manifest.airplane.flight!.zoneID
+        zoneIDsToDelete.append(flightZoneID)
 
-        let (share, _) = try await viewModel.fetchOrCreateShare(contactGroup: testContactGroup)
+        let (share, _) = try await viewModel.gate.fetchOrCreateShare(manifest: manifest)
 
         idsToDelete.append(share.recordID)
     }
@@ -92,7 +93,7 @@ class ZoneSharingTests: XCTestCase {
     private lazy var testContactName: String = {
         "Test\(UUID().uuidString)"
     }()
-    
+
     /// We also need a contact group name for our test contact.
     private lazy var testContactGroup: String = {
         "Group\(UUID().uuidString)"
@@ -100,12 +101,16 @@ class ZoneSharingTests: XCTestCase {
 
     /// Simple function to create and save a new `Contact` to test with. Immediately fails on any error.
     private func createTestContact() async throws {
-        try await viewModel.addContact(name: testContactName, phoneNumber: "555-123-4567", group: testContactGroup)
+        let flight = CKFlight(zoneName: testContactGroup)
+        let fields: [String: CKRecordValue] = [
+            "name": testContactName as CKRecordValue,
+            "phoneNumber": "555-123-4567" as CKRecordValue
+        ]
+        try await viewModel.gate.checkIn(fields, onto: flight)
     }
 
-    /// Uses the ViewModel to fetch private contacts. Immediately fails on any error.
-    /// - Parameter completion: Handler called on completion.
-    private func fetchPrivateContacts() async throws -> [ContactGroup] {
-        try await viewModel.fetchPrivateAndSharedContacts().private
+    /// Uses the gate to fetch private contacts. Immediately fails on any error.
+    private func fetchPrivateContacts() async throws -> [FlightManifest] {
+        try await viewModel.gate.fetchAllContacts()
     }
 }
