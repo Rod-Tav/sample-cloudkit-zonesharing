@@ -24,7 +24,7 @@ final class ViewModel {
 
     enum State {
         case loading
-        case loaded(privateGroups: [ContactGroup], sharedGroups: [ContactGroup])
+        case loaded(privateGroups: CKAirport, sharedGroups: CKAirport)
         case error(Error)
     }
 
@@ -92,8 +92,8 @@ final class ViewModel {
             let zone = CKFlight(zoneName: group)
             try await database.save(zone)
             
-            let id = CKTerminal.ID(zoneID: zone.zoneID)
-            let contactRecord = CKTerminal(recordType: "SharedContact", recordID: id)
+            let id = CKAirport.ID(zoneID: zone.zoneID)
+            let contactRecord = CKAirport(recordType: "SharedContact", recordID: id)
             contactRecord["name"] = contact.name
             contactRecord["phoneNumber"] = contact.phoneNumber
 

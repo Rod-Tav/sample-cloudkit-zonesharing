@@ -7,18 +7,17 @@
 
 import Foundation
 
-protocol Sociable: Identifiable, Sendable {
-    /// The type of items being paginated (e.g., User, FeedItem, Comment)
-    associatedtype Item: Identifiable
+public protocol Sociable: Identifiable, Sendable {
+    associatedtype Passenger: Identifiable
     
-    var airplane: Airplane<Item> { get set }
-    var terminal: CKTerminal { get set }
+    var airplane: Airplane<Passenger> { get set }
+    var airport: CKAirport { get set }
     
-    func trip(from terminal: CKTerminal) -> CKFlight?
+    func trip(from airport: CKAirport) -> CKFlight?
 }
 
 extension Sociable {
-    func trip(from terminal: CKTerminal) -> CKFlight? {
-        return CKFlight(zoneID: terminal.gate)
+    func trip(from airport: CKAirport) -> CKFlight? {
+        return CKFlight(zoneID: airport.ID)
     }
 }

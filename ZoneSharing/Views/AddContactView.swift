@@ -18,14 +18,8 @@ struct AddContactView: View {
     var onCancel: () -> Void = { }
 
     var body: some View {
-        if #available(iOS 16, *) {
-            NavigationStack {
-                addContactContent
-            }
-        } else {
-            NavigationView {
-                addContactContent
-            }
+        NavigationStack {
+            addContactContent
         }
     }
     

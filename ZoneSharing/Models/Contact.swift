@@ -12,6 +12,6 @@ struct Contact: Identifiable, Sociable {
     let name: String
     let phoneNumber: String
     
-    var terminal: CKTerminal
+    var airport: CKAirport
     var airplane = Airplane<Contact>()
 }

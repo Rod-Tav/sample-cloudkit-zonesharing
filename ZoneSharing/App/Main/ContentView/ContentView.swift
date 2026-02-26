@@ -174,7 +174,7 @@ private extension ContentView {
                     id: UUID().uuidString,
                     name: "John Appleseed",
                     phoneNumber: "(888) 555-5512",
-                    associatedStation: CKTerminal(recordType: "SharedContact")
+                    associatedStation: CKAirport(recordType: "SharedContact")
                 )
             ]
     )
