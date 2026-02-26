@@ -7,7 +7,7 @@ import Foundation
 import CloudKit
 
 struct ContactGroup {
-    let zone: CKOrbit
+    let zone: SecureOtherData
     let contacts: [Contact]
 }
 

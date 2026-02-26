@@ -1,5 +1,5 @@
 //
-//  CKStation.swift
+//  SecureData.swift
 //  ZoneSharing
 //
 //  Created by Rod Tavangar on 2/24/26.
@@ -7,10 +7,10 @@
 
 import CloudKit
 
-public typealias CKStation = CKRecord
-public typealias CKOrbit = CKRecordZone
+public typealias SecureData = CKRecord
+public typealias SecureOtherData = CKRecordZone
 
-public extension CKStation {
+public extension SecureData {
     internal var genericID: String {
         return self.recordID.recordName
     }
@@ -23,9 +23,9 @@ public extension CKStation {
     }
     
     internal struct InvalidStation: LocalizedError {
-        let station: CKStation
+        let station: SecureData
         
-        init(_ station: CKStation) {
+        init(_ station: SecureData) {
             self.station = station
         }
 

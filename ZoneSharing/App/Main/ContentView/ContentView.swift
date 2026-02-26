@@ -94,6 +94,7 @@ private extension ContentView {
                     Button("Share Group") { Task { try? await shareGroup(contactGroup) } }
                 }
             }
+            
             ForEach(sharedContacts) { contactGroup in
                 Section {
                     ForEach(contactGroup.contacts) { contactRowView(for: $0) }
@@ -166,14 +167,14 @@ private extension ContentView {
 // MARK: - Preview
 #Preview {
     @Previewable @State var previewContacts = ContactGroup(
-        zone: CKOrbit(zoneName: "Preview Group"),
+        zone: SecureOtherData(zoneName: "Preview Group"),
         contacts:
             [
                 Contact(
                     id: UUID().uuidString,
                     name: "John Appleseed",
                     phoneNumber: "(888) 555-5512",
-                    associatedStation: CKStation(recordType: "SharedContact")
+                    associatedStation: SecureData(recordType: "SharedContact")
                 )
             ]
     )

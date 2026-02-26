@@ -10,8 +10,8 @@ import CloudKit
 class ZoneSharingTests: XCTestCase {
 
     let viewModel = ViewModel()
-    var idsToDelete: [CKStation.ID] = []
-    var zoneIDsToDelete: [CKOrbit.ID] = []
+    var idsToDelete: [SecureData.ID] = []
+    var zoneIDsToDelete: [SecureOtherData.ID] = []
 
     // MARK: - Setup & Tear Down
 

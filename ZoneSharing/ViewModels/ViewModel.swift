@@ -71,7 +71,7 @@ final class ViewModel {
         // Determine zones for each set of contacts.
         // In the Private DB, we want to ignore the default zone.
         let privateZones = try await database.allRecordZones()
-            .filter { $0.zoneID != CKOrbit.default().zoneID }
+            .filter { $0.zoneID != SecureOtherData.default().zoneID }
         let sharedZones = try await container.sharedCloudDatabase.allRecordZones()
 
         // This will run each of these operations in parallel.
@@ -86,16 +86,16 @@ final class ViewModel {
     ///   - name: Name of the Contact.
     ///   - phoneNumber: Phone number of the contact.
     ///   - group: Group name the Contact should belong to.
-    func addContact(name: String, phoneNumber: String, group: String) async throws {
+    func addContact(contact: Contact, group: String) async throws {
         do {
             // Ensure zone exists first.
-            let zone = CKOrbit(zoneName: group)
+            let zone = SecureOtherData(zoneName: group)
             try await database.save(zone)
             
-            let id = CKStation.ID(zoneID: zone.zoneID)
-            let contactRecord = CKStation(recordType: "SharedContact", recordID: id)
-            contactRecord["name"] = name
-            contactRecord["phoneNumber"] = phoneNumber
+            let id = SecureData.ID(zoneID: zone.zoneID)
+            let contactRecord = SecureData(recordType: "SharedContact", recordID: id)
+            contactRecord["name"] = contact.name
+            contactRecord["phoneNumber"] = contact.phoneNumber
 
             try await database.save(contactRecord)
         } catch {
@@ -132,7 +132,7 @@ final class ViewModel {
     /// - Returns: An array of grouped contacts (a zone/group name and an array of `Contact` objects).
     private func fetchContacts(
         scope: CKDatabase.Scope,
-        in zones: [CKOrbit]
+        in zones: [SecureOtherData]
     ) async throws -> [ContactGroup] {
         guard !zones.isEmpty else {
             return []
@@ -142,8 +142,8 @@ final class ViewModel {
         var allContacts: [ContactGroup] = []
 
         // Inner function retrieving and converting all Contact records for a single zone.
-        @Sendable func contactsInZone(_ zone: CKOrbit) async throws -> [Contact] {
-            if zone.zoneID == CKOrbit.default().zoneID {
+        @Sendable func contactsInZone(_ zone: SecureOtherData) async throws -> [Contact] {
+            if zone.zoneID == SecureOtherData.default().zoneID {
                 return []
             }
 
@@ -170,7 +170,7 @@ final class ViewModel {
         }
 
         // Using this task group, fetch each zone's contacts in parallel.
-        try await withThrowingTaskGroup(of: (CKOrbit, [Contact]).self) { group in
+        try await withThrowingTaskGroup(of: (SecureOtherData, [Contact]).self) { group in
             for zone in zones {
                 group.addTask {
                     (zone, try await contactsInZone(zone))
