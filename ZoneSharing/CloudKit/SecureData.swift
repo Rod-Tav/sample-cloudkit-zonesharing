@@ -8,7 +8,7 @@
 import CloudKit
 
 public typealias SecureData = CKRecord
-public typealias SecureOtherData = CKRecordZone
+public typealias SecureSocialData = CKRecordZone
 
 public extension SecureData {
     internal var genericID: String {

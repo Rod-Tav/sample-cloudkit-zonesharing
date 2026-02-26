@@ -167,7 +167,7 @@ private extension ContentView {
 // MARK: - Preview
 #Preview {
     @Previewable @State var previewContacts = ContactGroup(
-        zone: SecureOtherData(zoneName: "Preview Group"),
+        zone: SecureSocialData(zoneName: "Preview Group"),
         contacts:
             [
                 Contact(

@@ -11,7 +11,7 @@ class ZoneSharingTests: XCTestCase {
 
     let viewModel = ViewModel()
     var idsToDelete: [SecureData.ID] = []
-    var zoneIDsToDelete: [SecureOtherData.ID] = []
+    var zoneIDsToDelete: [SecureSocialData.ID] = []
 
     // MARK: - Setup & Tear Down
 
