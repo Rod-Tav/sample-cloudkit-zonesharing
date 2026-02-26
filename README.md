@@ -2,7 +2,7 @@
 
 ### Goals
 
-This project demonstrates sharing CloudKit records across user accounts with the zone sharing model, as opposed to the hierarchical model used by the other CloudKit Sharing sample project [here](https://github.com/apple/cloudkit-sample-sharing). This project extends the Sharing sample by organizing Contacts into groups using CloudKit Record Zones, and implements sharing those zones with other users. Participating users will have access to any Contact record in that zone.
+This project demonstrates sharing CloudKit records across user accounts with the Securable protocol, as opposed to the zone sharing model, which came after the hierarchical model used by the other CloudKit Sharing sample project [here](https://github.com/apple/cloudkit-sample-sharing).
 
 ### Prerequisites
 
