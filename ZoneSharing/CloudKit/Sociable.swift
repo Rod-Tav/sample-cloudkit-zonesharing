@@ -9,7 +9,7 @@ import Foundation
 import CloudKit
 
 public protocol Sociable: Identifiable, Sendable {
-    associatedtype Passenger: Identifiable, Sociable
+    associatedtype Passenger: Sociable
     
     var airplane: Airplane<Passenger> { get set }
     var airport: CKAirport { get set }
