@@ -10,11 +10,11 @@ import Foundation
 protocol Securable: Identifiable {
     func secureID() -> String?
     func secureData() -> SecureData?
-    func secureSocialData() -> SecureSocialData?
+    func SecureSocialGroup() -> SecureSocialGroup?
 }
 
 extension Securable {
-    func secureID() -> String? { secureSocialData()?.zoneID.zoneName }
+    func secureID() -> String? { SecureSocialGroup()?.zoneID.zoneName }
     func secureData() -> SecureData? { return nil }
-    func secureSocialData() -> SecureSocialData? { return nil }
+    func SecureSocialGroup() -> SecureSocialGroup? { return nil }
 }

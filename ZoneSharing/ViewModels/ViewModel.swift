@@ -71,7 +71,7 @@ final class ViewModel {
         // Determine zones for each set of contacts.
         // In the Private DB, we want to ignore the default zone.
         let privateZones = try await database.allRecordZones()
-            .filter { $0.zoneID != SecureSocialData.default().zoneID }
+            .filter { $0.zoneID != SecureSocialGroup.default().zoneID }
         let sharedZones = try await container.sharedCloudDatabase.allRecordZones()
 
         // This will run each of these operations in parallel.
@@ -89,7 +89,7 @@ final class ViewModel {
     func addContact(contact: Contact, group: String) async throws {
         do {
             // Ensure zone exists first.
-            let zone = SecureSocialData(zoneName: group)
+            let zone = SecureSocialGroup(zoneName: group)
             try await database.save(zone)
             
             let id = SecureData.ID(zoneID: zone.zoneID)
@@ -132,7 +132,7 @@ final class ViewModel {
     /// - Returns: An array of grouped contacts (a zone/group name and an array of `Contact` objects).
     private func fetchContacts(
         scope: CKDatabase.Scope,
-        in zones: [SecureSocialData]
+        in zones: [SecureSocialGroup]
     ) async throws -> [ContactGroup] {
         guard !zones.isEmpty else {
             return []
@@ -142,8 +142,8 @@ final class ViewModel {
         var allContacts: [ContactGroup] = []
 
         // Inner function retrieving and converting all Contact records for a single zone.
-        @Sendable func contactsInZone(_ zone: SecureSocialData) async throws -> [Contact] {
-            if zone.zoneID == SecureSocialData.default().zoneID {
+        @Sendable func contactsInZone(_ zone: SecureSocialGroup) async throws -> [Contact] {
+            if zone.zoneID == SecureSocialGroup.default().zoneID {
                 return []
             }
 
@@ -170,7 +170,7 @@ final class ViewModel {
         }
 
         // Using this task group, fetch each zone's contacts in parallel.
-        try await withThrowingTaskGroup(of: (SecureSocialData, [Contact]).self) { group in
+        try await withThrowingTaskGroup(of: (SecureSocialGroup, [Contact]).self) { group in
             for zone in zones {
                 group.addTask {
                     (zone, try await contactsInZone(zone))
