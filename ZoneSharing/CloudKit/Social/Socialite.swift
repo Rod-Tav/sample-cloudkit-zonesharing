@@ -8,18 +8,19 @@
 import Foundation
 import CloudKit
 
-@Observable public actor Socialite<T: Sociable> {
-    associatedtype Passenger: Socialite
-
-    var passenger: CKPassenger { get }
-    var airplane: Airplane<Passenger> { get set }
-    var gate: CKGate { get set }
+@Observable public actor Socialite<T: Sociable>: Sociable {
+    var passenger: CKPassenger
+    var airplane: Airplane<Passenger>
+    var gate: CKGate
 
     /// Deserialize from a CloudKit record. Returns nil if the record is malformed.
-    static func arrive(from passenger: CKPassenger, at gate: CKGate) -> Self?
+    func arrive(from passenger: CKPassenger, at gate: CKGate) async {
+        
+    }
 
     /// The CloudKit-serializable fields for this passenger.
-    var fields: [String: CKPassenger] { get }
+    var fields: [String: CKPassenger] {
+    }
 
     func getTrip(from gate: CKGate) async -> CKFlight?
 

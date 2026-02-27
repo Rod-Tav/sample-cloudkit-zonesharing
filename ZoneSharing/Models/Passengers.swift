@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Passengers<T: Socialite>: Identifiable {
+public struct Passengers<T: Socialite>: Sociable {
     public let id: String
     let gate: String
     let passengers: Set<T>

@@ -13,7 +13,7 @@ import Observation
 @MainActor public protocol Sociable: AnyObject, Observable, Sendable, Identifiable, Hashable, Equatable {
     associatedtype Item: Socialite
    
-    var state: SocialState<Item> { get set }
+    var state: Moment<Item> { get set }
 //    var airport: CKAirport<Item> { get set }
 //    var currentPassenger: CKPassenger<Item>? { get set }
    

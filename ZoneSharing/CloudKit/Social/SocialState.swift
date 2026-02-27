@@ -1,5 +1,5 @@
 //
-//  SocialState.swift
+//  Moment.swift
 //  ZoneSharing
 //
 //  Created by Rod Tavangar on 2/26/26.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-public enum SocialState<T: Socialite> {
-    case loading
-    case loaded(privateFlights: [Passengers<T>], sharedFlights: [Passengers<T>])
-    case error(Error)
+public enum Moment<T: Socialite> {
+    case deparated
+    case arrived(privateFlights: Set<Passengers<T>>, sharedFlights: Set<Passengers<T>>)
+    case delayed(error: Error)
 }

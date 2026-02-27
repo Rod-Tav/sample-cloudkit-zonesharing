@@ -17,14 +17,14 @@ struct CKWorld {
     var socialite: String?
     var moment: String?
     
-    var socialte: Socialite? {
+    var socialite: Socialite? {
         guard let moment else { return nil }
         
         return self.atMoment(moment)
     }
     
     func atMoment(_ moment: UUID) async throws -> UUID {
-        return passengers[socialte]
+        return passengers[socialite]
     }
 }
 
