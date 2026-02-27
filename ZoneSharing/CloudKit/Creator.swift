@@ -8,10 +8,10 @@
 import Foundation
 import CloudKit
 
-@Observable @MainActor public class Creator<T: Socialite<String>> {
+@Observable @MainActor public class Creator {
     var passengers = [String: CKPassenger]()
-    var currentPassenger: String?
-    var currentPassengerId: String?
+    var currentPassenger: String? // uid
+    var currentPassengerId: String? // uuid
     
     var currentPassenger: Socialite? {
         guard let currentPassengerId else { return nil }
