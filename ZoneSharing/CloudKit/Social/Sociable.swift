@@ -17,7 +17,7 @@ import Observation
 //    var airport: CKAirport<Item> { get set }
 //    var currentPassenger: CKPassenger<Item>? { get set }
    
-    func startSocializing()
+    func bigBang()
     func refresh() async throws
 }
 
@@ -28,7 +28,7 @@ extension Sociable where Self: Equatable {
 }
 
 extension Sociable {
-    func startSocializing(at code: String) async throws {
+    func bigBang(at code: String) async throws {
         self.airport = CKAirport(code: CKGate.privateGate(containerIdentifier: Config.containerIdentifier))
         
         self.currentPassenger = gate.terminal.getPassengers()
