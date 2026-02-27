@@ -12,6 +12,7 @@
 		5573092B2F50E6B90017DCA1 /* ObservablePassengers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573092A2F50E6B90017DCA1 /* ObservablePassengers.swift */; };
 		5573092E2F50FDFC0017DCA1 /* CKTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573092D2F50FDFC0017DCA1 /* CKTerminal.swift */; };
 		557309302F5100AF0017DCA1 /* CKAirport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573092F2F5100AF0017DCA1 /* CKAirport.swift */; };
+		557309342F5136C20017DCA1 /* Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557309332F5136C20017DCA1 /* Creator.swift */; };
 		55F2FDDD2F4FF70D00CAFE0C /* Socialite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDDC2F4FF70D00CAFE0C /* Socialite.swift */; };
 		55F2FDDF2F50399200CAFE0C /* CKAirplane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDDE2F50399200CAFE0C /* CKAirplane.swift */; };
 		55F2FDE12F504FF200CAFE0C /* Airplane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2FDE02F504FF200CAFE0C /* Airplane.swift */; };
@@ -49,6 +50,7 @@
 		5573092A2F50E6B90017DCA1 /* ObservablePassengers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservablePassengers.swift; sourceTree = "<group>"; };
 		5573092D2F50FDFC0017DCA1 /* CKTerminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKTerminal.swift; sourceTree = "<group>"; };
 		5573092F2F5100AF0017DCA1 /* CKAirport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKAirport.swift; sourceTree = "<group>"; };
+		557309332F5136C20017DCA1 /* Creator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creator.swift; sourceTree = "<group>"; };
 		55F2FDDC2F4FF70D00CAFE0C /* Socialite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socialite.swift; sourceTree = "<group>"; };
 		55F2FDDE2F50399200CAFE0C /* CKAirplane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKAirplane.swift; sourceTree = "<group>"; };
 		55F2FDE02F504FF200CAFE0C /* Airplane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airplane.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				55F2FDE42F50B6D400CAFE0C /* CKPassenger.swift */,
 				5573092D2F50FDFC0017DCA1 /* CKTerminal.swift */,
 				5573092F2F5100AF0017DCA1 /* CKAirport.swift */,
+				557309332F5136C20017DCA1 /* Creator.swift */,
 			);
 			path = CloudKit;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				A1B2C3D52816300000000005 /* CKGate.swift in Sources */,
 				553982B72F50D3ED002E0A62 /* Passengers.swift in Sources */,
 				A1B2C3D62816300000000006 /* View-Extensions.swift in Sources */,
+				557309342F5136C20017DCA1 /* Creator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

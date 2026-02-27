@@ -15,12 +15,11 @@ public protocol CKAirplane: Sociable {
     
     func getName() -> String
     func getGate() -> CKGate
-    func getPassengers() -> Set<CKPassenger>
 }
 
-extension CKAirplane {
+extension CKAirplane where Self: Sociable {
     func getName() -> String { return flight.zoneID.zoneName }
     
-    func getPassengers() -> Set<CKPassenger> { return gate.getPassengers() }
+    func getPassengers() -> Set<CKPassenger<<#T: Sociable#>>> { return gate.getPassengers() }
     
 }

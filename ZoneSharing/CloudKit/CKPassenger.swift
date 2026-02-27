@@ -10,7 +10,7 @@ import CloudKit
 
 public typealias CKSeat = CKRecordZone
 
-public actor CKPassenger<T: Sociable>: Observable {
+@Observable public actor CKPassenger<T: Sociable> {
     var name: CKRecordZone
     var seat: CKSeat
     

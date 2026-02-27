@@ -10,13 +10,12 @@ import Foundation
 import Observation
 
 @available(iOS 17.0, *)
-@MainActor
-public protocol Sociable: AnyObject, Observable, Sendable, Identifiable, Hashable, Equatable {
+@MainActor public protocol Sociable: AnyObject, Observable, Sendable, Identifiable, Hashable, Equatable {
     associatedtype Item: Socialite
    
     var state: SocialState<Item> { get set }
-    var gate: CKGate { get set }
-    var currentPassenger: CKPassenger? { get set }
+//    var airport: CKAirport<Item> { get set }
+//    var currentPassenger: CKPassenger<Item>? { get set }
    
     func startSocializing()
     func refresh() async throws
@@ -24,13 +23,13 @@ public protocol Sociable: AnyObject, Observable, Sendable, Identifiable, Hashabl
 
 extension Sociable where Self: Equatable {
     func equals(lhs: any Socialite, rhs: any Socialite) -> Bool {
-        lhs.passenger.getName() == rhs.passenger.getName() // hooray!
+        lhs.passenger.getName() == rhs.passenger.getName()
     }
 }
 
 extension Sociable {
-    func startSocializing() async throws {
-        self.gate = CKGate.privateGate(containerIdentifier: Config.containerIdentifier)
+    func startSocializing(at code: String) async throws {
+        self.airport = CKAirport(code: CKGate.privateGate(containerIdentifier: Config.containerIdentifier))
         
         self.currentPassenger = gate.terminal.getPassengers()
        

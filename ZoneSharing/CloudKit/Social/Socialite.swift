@@ -8,7 +8,7 @@
 import Foundation
 import CloudKit
 
-@MainActor public protocol Socialite: Sociable {
+@Observable public actor Socialite<T: Sociable> {
     associatedtype Passenger: Socialite
 
     var passenger: CKPassenger { get }

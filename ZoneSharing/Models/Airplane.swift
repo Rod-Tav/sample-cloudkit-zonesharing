@@ -8,8 +8,8 @@
 import Foundation
 import CloudKit
 
-public actor Airplane<T: Socialite>: Sendable {
-    public let id: String
+public actor Airplane<T: Socialite>: Sociable {
+    public let id = UUID()
     var flight: CKFlight?
     var passengers = Set<T>()
 
