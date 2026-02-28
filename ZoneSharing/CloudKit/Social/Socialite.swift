@@ -8,9 +8,9 @@
 import Foundation
 import CloudKit
 
-@Observable public actor Socialite<T: Sociable>: Sociable {
+@Observable @MainActor class Socialite: Sociable {
     var passenger: CKPassenger
-    var airplane: Airplane<Passenger>
+    var airplane: Airplane<CKPassenger>
     var gate: CKGate
 
     /// Deserialize from a CloudKit record. Returns nil if the record is malformed.

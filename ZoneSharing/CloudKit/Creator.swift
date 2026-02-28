@@ -12,35 +12,25 @@ struct CKWorld {
     
 }
 
-@Observable @MainActor public class Creator: Commendable {
-    var passengers = [String: CKPassenger]()
-    var socialite: String?
-    var moment: String?
+@Observable @MainActor public class Creator {
+    var time = [UUID: Socialite]()
+    var currentSocialiteID: UUID?
     
-    var socialite: Socialite? {
-        guard let moment else { return nil }
+    var currentSocialite: Socialite? {
+        guard let currentSocialiteID else { return nil }
         
-        return self.atMoment(moment)
+        return time[currentSocialiteID]
     }
     
-    func atMoment(_ moment: UUID) async throws -> UUID {
-        return passengers[socialite]
+    func exist(at moment: UUID) async throws -> Socialite {
+        if let socialite = self.time[moment] {
+            return socialite
+        } else {
+            throw InvalidTime()
+        }
     }
 }
 
-public protocol Commendable {
-    var moment: UUID { get set }
-    
-    func bigBang() async throws
-    func exist(at moment: String) async throws
-}
-
-extension Commendable {
-    func bigBang() async throws {
-        try exist(at: moment)
-    }
-    
-    func exist(at moment: UUID) async throws {
-        self.moment = moment
-    }
+private struct InvalidTime: Error {
+    var errorDescription: String? { "Invalid or missing CKShare" }
 }

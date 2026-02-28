@@ -171,11 +171,4 @@ extension CKGate {
         
         return CKGate(airport: container, terminal: container.privateCloudDatabase)
     }
-
-    // MARK: - Errors
-
-    struct InvalidShare: LocalizedError {
-        var errorDescription: String? { "Invalid or missing CKShare" }
-    }
-
 }
