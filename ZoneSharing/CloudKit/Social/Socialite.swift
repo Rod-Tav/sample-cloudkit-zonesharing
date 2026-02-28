@@ -9,20 +9,22 @@ import Foundation
 import CloudKit
 
 @Observable @MainActor class Socialite: Sociable {
-    var passenger: CKPassenger
-    var airplane: Airplane<CKPassenger>
-    var gate: CKGate
-
-    /// Deserialize from a CloudKit record. Returns nil if the record is malformed.
-    func arrive(from passenger: CKPassenger, at gate: CKGate) async {
+    var uid: CKRecordZone
+    
+    func think(with creator: Creator) {
         
     }
-
-    /// The CloudKit-serializable fields for this passenger.
-    var fields: [String: CKPassenger] {
-    }
-
-    func getTrip(from gate: CKGate) async -> CKFlight?
+//
+//    /// Deserialize from a CloudKit record. Returns nil if the record is malformed.
+//    func arrive(from passenger: CKPassenger, at gate: CKGate) async {
+//        
+//    }
+//
+//    /// The CloudKit-serializable fields for this passenger.
+//    var fields: [String: CKPassenger] {
+//    }
+//
+//    func getTrip(from gate: CKGate) async -> CKFlight?
 
     func getAllFlights<S: Sociable>(using data: S) async throws -> (
         private: [Passengers<Self>],

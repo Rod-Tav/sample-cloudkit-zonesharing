@@ -39,7 +39,7 @@ struct Contact: Socialite {
 extension Contact {
     /// Preview/test convenience — creates a Contact without a real CKPassenger.
     static func preview(name: String, phoneNumber: String) -> Contact {
-        let container = CKContainer(identifier: Config.containerIdentifier)
+        let container = CKContainer(identifier: CKWorld.containerIdentifier)
         return Contact(
             id: UUID().uuidString,
             name: name,
